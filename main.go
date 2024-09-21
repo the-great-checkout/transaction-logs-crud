@@ -22,11 +22,11 @@ type Environment struct {
 	Port string `env:"PORT,default=:8082"`
 }
 
-// @title Transaction Logs CRUD API
-// @version 1.0
-// @description This is a sample server for transaction log CRUD.
-// @host localhost:8082
-// @BasePath /
+//	@title			Transaction Logs CRUD API
+//	@version		1.0
+//	@description	This is a sample server for transaction log CRUD.
+//	@host			localhost:8082
+//	@BasePath		/
 
 func main() {
 	var environment Environment

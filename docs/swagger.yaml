@@ -1,0 +1,91 @@
+basePath: /
+definitions:
+  dto.TransactionLog:
+    properties:
+      status:
+        type: string
+      timestamp:
+        type: string
+      transaction_id:
+        type: string
+      value:
+        type: number
+    type: object
+host: localhost:8082
+info:
+  contact: {}
+  description: This is a sample server for transaction log CRUD.
+  title: Transaction Logs CRUD API
+  version: "1.0"
+paths:
+  /transaction-logs:
+    post:
+      consumes:
+      - application/json
+      description: Create a new transaction log
+      parameters:
+      - description: Transaction Log
+        in: body
+        name: log
+        required: true
+        schema:
+          $ref: '#/definitions/dto.TransactionLog'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/dto.TransactionLog'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Create Transaction Log
+  /transaction-logs/{id}:
+    get:
+      description: Retrieve all transaction logs associated with a specific transaction
+        ID
+      parameters:
+      - description: Transaction ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dto.TransactionLog'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get Transaction Logs by Transaction ID
+swagger: "2.0"

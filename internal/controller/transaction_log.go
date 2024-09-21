@@ -24,15 +24,16 @@ func NewTransactionLogController(service TransactionLogService) *TransactionLogC
 }
 
 // CreateHandler godoc
-// @Summary Create Transaction Log
-// @Description Create a new transaction log
-// @Accept json
-// @Produce json
-// @Param log body dto.TransactionLog true "Transaction Log"
-// @Success 201 {object} dto.TransactionLog
-// @Failure 400 {object} map[string]string
-// @Failure 500 {object} map[string]string
-// @Router /transaction-logs [post]
+//
+//	@Summary		Create Transaction Log
+//	@Description	Create a new transaction log
+//	@Accept			json
+//	@Produce		json
+//	@Param			log	body		dto.TransactionLog	true	"Transaction Log"
+//	@Success		201	{object}	dto.TransactionLog
+//	@Failure		400	{object}	map[string]string
+//	@Failure		500	{object}	map[string]string
+//	@Router			/transaction-logs [post]
 func (ctrl *TransactionLogController) CreateHandler(c echo.Context) error {
 	var input dto.TransactionLog
 	if err := c.Bind(&input); err != nil {
@@ -47,15 +48,16 @@ func (ctrl *TransactionLogController) CreateHandler(c echo.Context) error {
 }
 
 // FindAllByTransactionIDHandler godoc
-// @Summary Get Transaction Logs by Transaction ID
-// @Description Retrieve all transaction logs associated with a specific transaction ID
-// @Param id path string true "Transaction ID"
-// @Produce json
-// @Success 200 {array} dto.TransactionLog
-// @Failure 400 {object} map[string]string
-// @Failure 404 {object} map[string]string
-// @Failure 500 {object} map[string]string
-// @Router /transaction-logs/{id} [get]
+//
+//	@Summary		Get Transaction Logs by Transaction ID
+//	@Description	Retrieve all transaction logs associated with a specific transaction ID
+//	@Param			id	path	string	true	"Transaction ID"
+//	@Produce		json
+//	@Success		200	{array}		dto.TransactionLog
+//	@Failure		400	{object}	map[string]string
+//	@Failure		404	{object}	map[string]string
+//	@Failure		500	{object}	map[string]string
+//	@Router			/transaction-logs/{id} [get]
 func (ctrl *TransactionLogController) FindAllByTransactionIDHandler(c echo.Context) error {
 	idStr := c.Param("id")
 	id, err := uuid.Parse(idStr)
