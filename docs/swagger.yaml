@@ -18,39 +18,7 @@ info:
   title: Transaction Logs CRUD API
   version: "1.0"
 paths:
-  /transaction-logs:
-    post:
-      consumes:
-      - application/json
-      description: Create a new transaction log
-      parameters:
-      - description: Transaction Log
-        in: body
-        name: log
-        required: true
-        schema:
-          $ref: '#/definitions/dto.TransactionLog'
-      produces:
-      - application/json
-      responses:
-        "201":
-          description: Created
-          schema:
-            $ref: '#/definitions/dto.TransactionLog'
-        "400":
-          description: Bad Request
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-        "500":
-          description: Internal Server Error
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-      summary: Create Transaction Log
-  /transaction-logs/{id}:
+  /v1/transactions/{transactionId}/logs:
     get:
       description: Retrieve all transaction logs associated with a specific transaction
         ID
@@ -88,4 +56,35 @@ paths:
               type: string
             type: object
       summary: Get Transaction Logs by Transaction ID
+    post:
+      consumes:
+      - application/json
+      description: Create a new transaction log
+      parameters:
+      - description: Transaction Log
+        in: body
+        name: log
+        required: true
+        schema:
+          $ref: '#/definitions/dto.TransactionLog'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/dto.TransactionLog'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Create Transaction Log
 swagger: "2.0"
