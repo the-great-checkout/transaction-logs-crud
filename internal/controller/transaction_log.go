@@ -33,7 +33,7 @@ func NewTransactionLogController(service TransactionLogService) *TransactionLogC
 //	@Success		201	{object}	dto.TransactionLog
 //	@Failure		400	{object}	map[string]string
 //	@Failure		500	{object}	map[string]string
-//	@Router			/v1/transactions/{transactionId}/logs [post]
+//	@Router			/v1/transactions/{transactionID}/logs [post]
 func (ctrl *TransactionLogController) CreateHandler(c echo.Context) error {
 	var input dto.TransactionLog
 	if err := c.Bind(&input); err != nil {
@@ -57,9 +57,9 @@ func (ctrl *TransactionLogController) CreateHandler(c echo.Context) error {
 //	@Failure		400	{object}	map[string]string
 //	@Failure		404	{object}	map[string]string
 //	@Failure		500	{object}	map[string]string
-//	@Router			/v1/transactions/{transactionId}/logs [get]
+//	@Router			/v1/transactions/{transactionID}/logs [get]
 func (ctrl *TransactionLogController) FindAllByTransactionIDHandler(c echo.Context) error {
-	idStr := c.Param("transactionId")
+	idStr := c.Param("transactionID")
 	id, err := uuid.Parse(idStr)
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Invalid ID format"})

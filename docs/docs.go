@@ -15,7 +15,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/v1/transactions/{transactionId}/logs": {
+        "/v1/transactions/{transactionID}/logs": {
             "get": {
                 "description": "Retrieve all transaction logs associated with a specific transaction ID",
                 "produces": [

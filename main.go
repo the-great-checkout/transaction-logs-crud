@@ -48,9 +48,9 @@ func main() {
 	v1 := e.Group("/v1")
 
 	// Route for creating a new transaction log
-	v1.POST("/transactions/:transactionId/logs", transactionController.CreateHandler)
+	v1.POST("/transactions/:transactionID/logs", transactionController.CreateHandler)
 	// Route for retrieving all logs by transaction ID
-	v1.GET("/transactions/:transactionId/logs", transactionController.FindAllByTransactionIDHandler)
+	v1.GET("/transactions/:transactionID/logs", transactionController.FindAllByTransactionIDHandler)
 
 	e.Logger.Fatal(e.Start(environment.Port))
 }

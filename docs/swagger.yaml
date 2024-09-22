@@ -18,7 +18,7 @@ info:
   title: Transaction Logs CRUD API
   version: "1.0"
 paths:
-  /v1/transactions/{transactionId}/logs:
+  /v1/transactions/{transactionID}/logs:
     get:
       description: Retrieve all transaction logs associated with a specific transaction
         ID
